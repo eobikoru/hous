@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'; 
+import Category from './pages/Category';
+import Explore from './pages/Explore';
+import Offers from './pages/Offers';
+import SignIn from './pages/SignIn';
+import Profile from './pages/Profile';
+import SignUp from './pages/SignUp';
+import ForgotPassword from './pages/ForgotPassword';
+import Navbar from './component/Navbar';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    
+      <Routes>
+        <Route path="/" element={<Explore/>}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/offers" element={<Offers/>}></Route>
+        <Route path="/category/:categoryName" element={<Category/>}></Route>
+        <Route path="/signin" element={<SignIn/>}></Route>
+        <Route path="/signup" element={<SignUp/>}></Route>
+        <Route path="/forgotpassword" element={<ForgotPassword/>}></Route>
+        
+      </Routes>
+      <Navbar/>
+    </Router>
+    </>
   );
 }
 
